@@ -33,7 +33,7 @@ V_jc = V_jbp = 340  # m/s
 m_dot_fan_inlet = 392  # kg/s
 m_dot_core = 35  # kg/s
 m_dot_fuel = 0.441/3600/9.81*thrust_required  # kg/s
-non_dim_mass_flow_rate = 1.2234  # For M=0.78 (assumes no diffuser)
+non_dim_mass_flow_rate = 1.078  # Assumes M=0.6 fan inlet
 # --------------------------------------------------------------------------- #
 
 # Variables used for formatting the plots
@@ -118,7 +118,7 @@ for num_fans in fan_vals:
 
     # Calculate the diameter of the fan required
     d_fan = 2*np.sqrt((m_dot_fan*np.sqrt(c_p_air*T_02)) /
-                      (np.pi*M_flight*non_dim_mass_flow_rate*P_02))
+                      (np.pi*non_dim_mass_flow_rate*P_02))
 
     # Calculate the weight of a single fan
     k = 12/((3)**(2.4))
